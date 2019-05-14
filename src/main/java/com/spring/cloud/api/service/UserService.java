@@ -13,5 +13,5 @@ import org.springframework.web.bind.annotation.RequestParam;
 public interface UserService {
 
     @PostMapping(value = "/hi")
-    public Result regist(@RequestParam(value = "name") String name);
+    Result regist(@RequestParam(value = "name") String name);
 }
