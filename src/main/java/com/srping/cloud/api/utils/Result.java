@@ -1,8 +1,8 @@
-package com.spring.cloud.api.utils;
+package com.srping.cloud.api.utils;
 
 public class Result {
 
-    private int status;
+    private int code;
     private Object data;
     private String message;
 
@@ -22,11 +22,11 @@ public class Result {
         this.message = message;
     }
 
-    public int getStatus() {
-        return status;
+    public int getCode() {
+        return code;
     }
 
-    public void setStatus(int status) {
-        this.status = status;
+    public void setCode(int code) {
+        this.code = code;
     }
 }
