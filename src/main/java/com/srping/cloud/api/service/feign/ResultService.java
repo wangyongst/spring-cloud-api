@@ -13,18 +13,18 @@ public interface ResultService {
     Result ok();
 
     @GetMapping(value = "result/okWithMessage")
-    Result okWithMessage(@RequestParam String message);
+    Result okWithMessage(@RequestParam("message") String message);
 
     @GetMapping(value = "result/okWithData")
-    Result okWithData(@RequestParam Object data);
+    Result okWithData(@RequestParam("data") Object data);
 
     @GetMapping(value = "result/okWithDataAndMessage")
-    Result okWithDataAndMessage(@RequestParam Object data, @RequestParam String message);
+    Result okWithDataAndMessage(@RequestParam("data")  Object data, @RequestParam("message")  String message);
 
     @GetMapping(value = "result/parameterNotEnoughWithDataAndMessage")
-    Result parameterNotEnoughWithDataAndMessage(@RequestParam Object data, @RequestParam String message);
+    Result parameterNotEnoughWithDataAndMessage(@RequestParam("data")  Object data, @RequestParam("message")  String message);
 
     @GetMapping(value = "result/parameterErrorWithDataAndMessage")
-    Result parameterErrorWithDataAndMessage(@RequestParam Object data, @RequestParam String message);
+    Result parameterErrorWithDataAndMessage(@RequestParam("data")  Object data, @RequestParam ("message") String message);
 
 }
