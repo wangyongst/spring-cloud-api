@@ -22,9 +22,9 @@ public class UserApiController {
 
     @ApiOperation(value = "用户注册接口", notes = "提供用户注册")
     @ApiImplicitParams({
-            @ApiImplicitParam(name = "username", value = "账号（必需）", required = true, dataType = "String"),
-            @ApiImplicitParam(name = "password", value = " 密码（必需）", required = true, dataType = "String"),
-            @ApiImplicitParam(name = "mobile", value = " 手机号（必需）", required = true, dataType = "String")
+            @ApiImplicitParam(name = "username", value = "账号（必需）,String型", required = true, dataType = "String"),
+            @ApiImplicitParam(name = "password", value = " 密码（必需）,String型", required = true, dataType = "String"),
+            @ApiImplicitParam(name = "phone", value = " 手机号（必需）,String型", required = true, dataType = "String")
     })
     @PostMapping(value = "/regist")
     public Result regist(@ModelAttribute User user) {
