@@ -1,6 +1,6 @@
 package com.srping.cloud.api.model;
 
-public class User {
+public class UserM {
     private String id;
     private String username;
     private String password;

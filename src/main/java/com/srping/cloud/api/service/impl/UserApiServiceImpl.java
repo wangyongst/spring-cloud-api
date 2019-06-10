@@ -1,6 +1,6 @@
 package com.srping.cloud.api.service.impl;
 
-import com.srping.cloud.api.model.User;
+import com.srping.cloud.api.model.UserM;
 import com.srping.cloud.api.service.UserApiService;
 import com.srping.cloud.api.service.feign.UserService;
 import com.srping.cloud.api.utils.Result;
@@ -15,11 +15,11 @@ public class UserApiServiceImpl implements UserApiService {
     public UserService userService;
 
     @Override
-    public Result regist(User user) {
+    public Result regist(UserM user) {
         //第一个服务调用
         Result userResult = userService.regist(user);
         if (ResultUtil.checkResult(userResult)) return userResult;
-        User user2 = (User) userResult.getData();
+        UserM user2 = (UserM) userResult.getData();
         //第二个服务调用
         return  userService.regist(user);
 

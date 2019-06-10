@@ -1,6 +1,6 @@
 package com.srping.cloud.api.controller;
 
-import com.srping.cloud.api.model.User;
+import com.srping.cloud.api.model.UserM;
 import com.srping.cloud.api.service.UserApiService;
 import com.srping.cloud.api.utils.Result;
 import io.swagger.annotations.Api;
@@ -30,7 +30,7 @@ public class UserApiController {
 
     })
     @PostMapping(value = "/regist")
-    public Result regist(HttpServletRequest httpServletRequest, @ModelAttribute User user) {
+    public Result regist(HttpServletRequest httpServletRequest, @ModelAttribute UserM user) {
 
         //获取登录用户id办法
         String userId = httpServletRequest.getAttribute("userid").toString();
