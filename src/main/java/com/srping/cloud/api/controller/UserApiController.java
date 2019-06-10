@@ -27,8 +27,7 @@ public class UserApiController {
     @ApiImplicitParams({
             @ApiImplicitParam(name = "username", value = "账号（必需）,String型", required = true, dataType = "String"),
             @ApiImplicitParam(name = "password", value = " 密码（必需）,String型", required = true, dataType = "String"),
-            @ApiImplicitParam(name = "phone", value = " 手机号（必需）,String型", required = true, dataType = "String"),
-            @ApiImplicitParam(name = "token", value = " token（必需）,String型", required = true, dataType = "String")
+            @ApiImplicitParam(name = "phone", value = " 手机号（必需）,String型", required = true, dataType = "String")
 
     })
     @PostMapping(value = "/regist")
@@ -37,7 +36,19 @@ public class UserApiController {
         //获取登录用户id办法
         String userId = httpServletRequest.getAttribute("userid").toString();
 
+        //实现以下接口
+        // userApiService.islogin(String token,long time)
+        // 判断token是否有效
+        //返回结果中有userId
+
+
+
+
+
         return userApiService.regist(user);
     }
+
+
+    //https://blog.csdn.net/u011974797/article/details/81315503
 
 }
