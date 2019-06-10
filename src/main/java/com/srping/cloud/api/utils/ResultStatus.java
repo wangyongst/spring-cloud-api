@@ -6,6 +6,6 @@ public class ResultStatus {
     public final static int OK = 1;
 
     //熔断
-    public final static int HYSTRIC = 3;
+    public final static int HYSTRIC = 2;
 
 }
