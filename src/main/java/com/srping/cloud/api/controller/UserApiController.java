@@ -10,6 +10,8 @@ import io.swagger.annotations.ApiOperation;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
+import javax.servlet.http.HttpServletRequest;
+
 @Api(tags= "用户相关接口")
 @CrossOrigin("*")
 @RestController
@@ -24,10 +26,16 @@ public class UserApiController {
     @ApiImplicitParams({
             @ApiImplicitParam(name = "username", value = "账号（必需）,String型", required = true, dataType = "String"),
             @ApiImplicitParam(name = "password", value = " 密码（必需）,String型", required = true, dataType = "String"),
-            @ApiImplicitParam(name = "phone", value = " 手机号（必需）,String型", required = true, dataType = "String")
+            @ApiImplicitParam(name = "phone", value = " 手机号（必需）,String型", required = true, dataType = "String"),
+            @ApiImplicitParam(name = "token", value = " token（必需）,String型", required = true, dataType = "String")
+
     })
     @PostMapping(value = "/regist")
-    public Result regist(@ModelAttribute User user) {
+    public Result regist(HttpServletRequest httpServletRequest, @ModelAttribute User user) {
+
+        //获取登录用户id办法
+        String userId = httpServletRequest.getAttribute("userid").toString();
+
         return userApiService.regist(user);
     }
 
