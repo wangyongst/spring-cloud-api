@@ -32,6 +32,7 @@ public class UserApiController {
     @PostMapping(value = "/regist")
     public Result regist(HttpServletRequest httpServletRequest, @ModelAttribute UserM user) {
 
+        //所有接口不允许直接向前端返回当前登录用户ID
         //获取登录用户id办法
         String userId = httpServletRequest.getAttribute("userid").toString();
 
