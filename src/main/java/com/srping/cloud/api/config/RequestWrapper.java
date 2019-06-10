@@ -8,7 +8,7 @@ import java.util.Map;
 import java.util.Vector;
 
 public class RequestWrapper extends HttpServletRequestWrapper {
-    private Map params;
+    private Map<String, String[]> params;
 
     public RequestWrapper(HttpServletRequest request) {
         super(request);
