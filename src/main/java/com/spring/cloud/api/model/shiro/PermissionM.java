@@ -1,4 +1,4 @@
-package com.srping.cloud.api.model.shiro;
+package com.spring.cloud.api.model.shiro;
 
 public class PermissionM {
 

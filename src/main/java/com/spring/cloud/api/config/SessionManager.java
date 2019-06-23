@@ -1,4 +1,4 @@
-package com.srping.cloud.api.config;
+package com.spring.cloud.api.config;
 
 import org.apache.commons.lang.StringUtils;
 import org.apache.shiro.web.servlet.ShiroHttpServletRequest;
@@ -22,7 +22,7 @@ public class SessionManager extends DefaultWebSessionManager {
     @Override
     protected Serializable getSessionId(ServletRequest request, ServletResponse response) {
         String id = WebUtils.toHttp(request).getHeader(AUTHORIZATION);
-        if (!StringUtils.isEmpty(id)) {
+        if (StringUtils.isNotBlank(id)) {
             request.setAttribute(ShiroHttpServletRequest.REFERENCED_SESSION_ID_SOURCE, REFERENCED_SESSION_ID_SOURCE);
             request.setAttribute(ShiroHttpServletRequest.REFERENCED_SESSION_ID, id);
             request.setAttribute(ShiroHttpServletRequest.REFERENCED_SESSION_ID_IS_VALID, Boolean.TRUE);

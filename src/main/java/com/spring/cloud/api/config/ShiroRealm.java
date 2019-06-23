@@ -1,9 +1,11 @@
-package com.srping.cloud.api.config;
+package com.spring.cloud.api.config;
 
-import com.srping.cloud.api.model.shiro.PermissionM;
-import com.srping.cloud.api.model.shiro.RoleM;
-import com.srping.cloud.api.model.shiro.UserM;
-import com.srping.cloud.api.service.UserApiService;
+import com.spring.cloud.api.model.shiro.RoleM;
+import com.spring.cloud.api.model.shiro.UserM;
+import com.spring.cloud.api.model.shiro.PermissionM;
+import com.spring.cloud.api.service.UserApiService;
+import com.spring.cloud.api.utils.Result;
+import com.spring.cloud.api.utils.ResultUtil;
 import org.apache.shiro.authc.AuthenticationException;
 import org.apache.shiro.authc.AuthenticationInfo;
 import org.apache.shiro.authc.AuthenticationToken;
@@ -12,9 +14,7 @@ import org.apache.shiro.authz.AuthorizationInfo;
 import org.apache.shiro.authz.SimpleAuthorizationInfo;
 import org.apache.shiro.realm.AuthorizingRealm;
 import org.apache.shiro.subject.PrincipalCollection;
-import org.apache.shiro.util.ByteSource;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.stereotype.Component;
 
 public class ShiroRealm extends AuthorizingRealm {
 
@@ -39,8 +39,14 @@ public class ShiroRealm extends AuthorizingRealm {
     @Override
     protected AuthenticationInfo doGetAuthenticationInfo(AuthenticationToken token) throws AuthenticationException {
         String username = (String) token.getPrincipal();
-        UserM user = (UserM) userApiService.findByUsername(username).getData();
-        SimpleAuthenticationInfo authenticationInfo = new SimpleAuthenticationInfo(user, user.getPassword(), ByteSource.Util.bytes(user.getSalt()), getName());
+        UserM user = null;
+        Result result = userApiService.findByUsername(username);
+        if (ResultUtil.checkResult(result)) user = (UserM) result.getData();
+        else throw new AuthenticationException();
+        if (user == null) {
+            throw new AuthenticationException();
+        }
+        SimpleAuthenticationInfo authenticationInfo = new SimpleAuthenticationInfo(user, user.getPassword(), getName());
         return authenticationInfo;
     }
 }

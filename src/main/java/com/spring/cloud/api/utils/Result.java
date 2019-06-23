@@ -1,4 +1,4 @@
-package com.srping.cloud.api.utils;
+package com.spring.cloud.api.utils;
 
 public class Result {
 

@@ -1,4 +1,4 @@
-package com.srping.cloud.api;
+package com.spring.cloud.api;
 
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.context.annotation.Bean;

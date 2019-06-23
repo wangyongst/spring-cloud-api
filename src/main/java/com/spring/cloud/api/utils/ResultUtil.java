@@ -1,4 +1,4 @@
-package com.srping.cloud.api.utils;
+package com.spring.cloud.api.utils;
 
 public class ResultUtil {
 
@@ -27,6 +27,7 @@ public class ResultUtil {
     public static Result loginFail(String message) {
         Result result = new Result();
         result.setStatus(ResultStatus.LOGINFAIL);
+        result.setMessage(message);
         return result;
     }
 

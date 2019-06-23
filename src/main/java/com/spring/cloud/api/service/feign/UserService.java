@@ -1,7 +1,7 @@
-package com.srping.cloud.api.service.feign;
+package com.spring.cloud.api.service.feign;
 
-import com.srping.cloud.api.model.shiro.UserM;
-import com.srping.cloud.api.utils.Result;
+import com.spring.cloud.api.model.shiro.UserM;
+import com.spring.cloud.api.utils.Result;
 import org.springframework.cloud.openfeign.FeignClient;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.ModelAttribute;

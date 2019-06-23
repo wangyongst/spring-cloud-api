@@ -1,4 +1,4 @@
-package com.srping.cloud.api.model.shiro;
+package com.spring.cloud.api.model.shiro;
 
 import java.util.List;
 
@@ -7,8 +7,6 @@ public class UserM {
     private String username;
     //密码
     private String password;
-    //加盐
-    private String salt;
     //角色列表
     private List<RoleM> roles;
 
@@ -26,14 +24,6 @@ public class UserM {
 
     public void setPassword(String password) {
         this.password = password;
-    }
-
-    public String getSalt() {
-        return salt;
-    }
-
-    public void setSalt(String salt) {
-        this.salt = salt;
     }
 
     public List<RoleM> getRoles() {
