@@ -1,4 +1,4 @@
-package com.spring.cloud.api.controller;
+package com.spring.cloud.api.config;
 
 import com.spring.cloud.api.model.shiro.UserM;
 import com.spring.cloud.api.service.UserApiService;
@@ -17,7 +17,6 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 import springfox.documentation.annotations.ApiIgnore;
 
-@Api(tags = "用户认证相关接口")
 @CrossOrigin("*")
 @RestController
 @RequestMapping("/shiro")
@@ -29,19 +28,13 @@ public class ShiroController {
     @Autowired
     public UtilsService utilsService;
 
-    @ApiIgnore
+
     @RequestMapping("/403")
     public Result unauthorizedRole() {
         return ResultUtil.noPermission();
     }
 
 
-    @ApiOperation(value = "用户登录接口", notes = "提供用户登录")
-    @ApiImplicitParams({
-            @ApiImplicitParam(name = "username", value = "账号（必需）,String型", required = true, dataType = "String"),
-            @ApiImplicitParam(name = "password", value = " 密码（必需）,String型", required = true, dataType = "String")
-
-    })
     @PostMapping(value = "/login")
     public Result login(@ModelAttribute UserM user) {
         Subject subject = SecurityUtils.getSubject();
@@ -57,8 +50,6 @@ public class ShiroController {
         }
     }
 
-
-    @ApiOperation(value = "用户登出接口", notes = "提供用户登出")
     @PostMapping(value = "/logout")
     public Result login() {
         return ResultUtil.unAuth();
