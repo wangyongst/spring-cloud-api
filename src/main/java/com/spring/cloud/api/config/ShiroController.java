@@ -17,6 +17,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 import springfox.documentation.annotations.ApiIgnore;
 
+@Api(tags = "用户相关接口")
 @CrossOrigin("*")
 @RestController
 @RequestMapping("/shiro")
@@ -35,6 +36,12 @@ public class ShiroController {
     }
 
 
+    @ApiOperation(value = "用户登录", notes = "用户登录，输入账号密码，返回token，获取到的token做为认证标志，所有需要认证的请求头部添加Token参数传递")
+    @ApiImplicitParams({
+            @ApiImplicitParam(name = "username", value = "账号（必需）,String型", required = true, dataType = "String"),
+            @ApiImplicitParam(name = "password", value = " 密码（必需）,String型", required = true, dataType = "String")
+
+    })
     @PostMapping(value = "/login")
     public Result login(@ModelAttribute UserM user) {
         Subject subject = SecurityUtils.getSubject();
@@ -52,6 +59,8 @@ public class ShiroController {
 
     @PostMapping(value = "/logout")
     public Result login() {
+        Subject subject = SecurityUtils.getSubject();
+        subject.logout();
         return ResultUtil.unAuth();
     }
 
