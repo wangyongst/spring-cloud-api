@@ -1,7 +1,6 @@
-package com.spring.cloud.api.config;
+package com.spring.cloud.api.config.shiro;
 
 import org.apache.shiro.authc.credential.HashedCredentialsMatcher;
-import org.apache.shiro.authz.UnauthorizedException;
 import org.apache.shiro.spring.security.interceptor.AuthorizationAttributeSourceAdvisor;
 import org.apache.shiro.spring.web.ShiroFilterFactoryBean;
 import org.apache.shiro.web.mgt.DefaultWebSecurityManager;
@@ -10,7 +9,6 @@ import org.springframework.context.annotation.Configuration;
 import org.apache.shiro.mgt.SecurityManager;
 import org.springframework.web.servlet.handler.SimpleMappingExceptionResolver;
 
-import javax.ws.rs.ext.ExceptionMapper;
 import java.util.LinkedHashMap;
 import java.util.Map;
 import java.util.Properties;

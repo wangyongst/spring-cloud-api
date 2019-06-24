@@ -1,4 +1,4 @@
-package com.spring.cloud.api.config;
+package com.spring.cloud.api.config.shiro;
 
 import org.apache.commons.lang.StringUtils;
 import org.apache.shiro.web.servlet.ShiroHttpServletRequest;

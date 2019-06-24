@@ -1,4 +1,4 @@
-package com.spring.cloud.api.config;
+package com.spring.cloud.api.config.shiro;
 
 import com.spring.cloud.api.model.shiro.UserM;
 import com.spring.cloud.api.service.UserApiService;
