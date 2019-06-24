@@ -1,7 +1,7 @@
 package com.spring.cloud.api;
 
-import com.spring.cloud.api.config.filter.AuthInterceptor;
-import com.spring.cloud.api.config.filter.LogInterceptor;
+import com.spring.cloud.api.config.interceptor.AuthInterceptor;
+import com.spring.cloud.api.config.interceptor.LogInterceptor;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.web.servlet.config.annotation.InterceptorRegistry;

@@ -1,4 +1,4 @@
-package com.spring.cloud.api.config.filter;
+package com.spring.cloud.api.config.interceptor;
 
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
