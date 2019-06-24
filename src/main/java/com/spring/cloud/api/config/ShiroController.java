@@ -59,8 +59,7 @@ public class ShiroController {
 
     @PostMapping(value = "/logout")
     public Result login() {
-        Subject subject = SecurityUtils.getSubject();
-        subject.logout();
+        SecurityUtils.getSubject() logout();
         return ResultUtil.unAuth();
     }
 
